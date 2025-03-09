@@ -1,0 +1,37 @@
+/* Intro Section - Full Page */
+#intro {
+    height: 100vh; /* Full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 15%;
+    box-sizing: border-box;
+  }
+  
+  /* Hi, my name is - Neon Red */
+  #intro h1 {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #ff073a; /* Neon Red */
+  }
+  
+  /* Name - Bigger Size */
+  #intro h3 {
+    font-size: 64px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  /* Intro Text */
+  .intro-text {
+    color: #b0b0b0; /* Grey text */
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 600px;
+  }
+  

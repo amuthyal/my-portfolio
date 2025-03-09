@@ -1,0 +1,53 @@
+/* EXPERIENCE SECTION */
+#experience {
+    padding: 60px 15%;
+    min-height: 100vh;
+    text-align: left;
+  }
+  
+  /* Section Title */
+  .section-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  /* Experience Container */
+  .experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Experience Item */
+  .experience-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 7, 58, 0.5);
+  }
+  
+  /* Job Titles */
+  .experience-item h3 {
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Company Names */
+  .experience-item h4 {
+    color: #ff073a;
+    font-size: 18px;
+  }
+  
+  /* Dates */
+  .experience-item p {
+    color: #b0b0b0;
+    font-size: 16px;
+  }
+  
+  /* Responsibilities */
+  .experience-item ul {
+    color: #b0b0b0;
+    font-size: 16px;
+  }
+  
