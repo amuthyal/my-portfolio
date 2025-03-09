@@ -31,22 +31,44 @@ const MainContent = () => (
     <section id="intro">
       <h1>Hi, my name is</h1>
       <h3>Akhila Muthyala</h3>
-      <p>
+      <p className="intro-text">
         I'm an experienced full-stack developer, and I'm passionate about 
         building high-performance, AI-enhanced applications that drive 
         engagement and efficiency.
       </p>
     </section>
 
-    {/* About Me Section */}
+    {/* About Me Section (Text Left, Image Right) */}
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        With over five years of experience in software engineering, I have built a strong foundation 
-        in front-end and full-stack development, specializing in modern web technologies such as React, 
-        Angular, GraphQL, and Node.js. My expertise extends to designing scalable, high-performance 
-        applications, optimizing system architecture, and improving development workflows...
-      </p>
+      {/* Left Column - Text */}
+      <div className="about-text">
+        <h2>About Me</h2>
+        <p>
+          With over <span className="highlight">five years of experience</span> in software engineering, 
+          I have built a strong foundation in front-end and full-stack development, specializing in modern 
+          web technologies such as <span className="highlight">React, Angular, GraphQL, and Node.js</span>. 
+          My expertise extends to designing scalable, high-performance applications, optimizing system 
+          architecture, and improving development workflows.
+        </p>
+        <p>
+          I have a deep understanding of software design principles, <span className="highlight">CI/CD automation</span>, 
+          cloud services (<span className="highlight">AWS, Azure, GCP</span>), and database management. Passionate about 
+          building robust, maintainable solutions, I excel in developing responsive, accessible, and 
+          user-centric applications that drive engagement and business success.
+        </p>
+        <p>
+          Additionally, I leverage <span className="highlight">AI and ML tools</span> to enhance software capabilities, 
+          integrating intelligent automation and <span className="highlight">natural language processing </span> 
+          to improve user experiences and operational efficiency.
+        </p>
+      </div>
+
+      {/* Right Column - Image */}
+      <div className="about-image">
+       {/* <img src="/images/profile.jpg" alt="Akhila Muthyala" /> */}
+       <img src="https://via.placeholder.com/300x300" alt="Test Image" />
+
+      </div>
     </section>
 
     {/* Experience Section */}
