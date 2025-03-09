@@ -164,6 +164,41 @@ section {
   line-height: 1.5; /* Slightly reduced line height */
 }
 
+/* Technologies Section Title - Same as About Me */
+.tech-title {
+  color: #b0b0b0; /* Grey text (same as about-text) */
+  font-size: 16px; /* Same size as about-text */
+  font-weight: normal;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+
+/* Tech List Container - Creates Two Columns */
+.tech-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+/* Tech List Styling */
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #b0b0b0; /* Grey text */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.tech-list li::before {
+  content: "•"; /* Bullet point */
+  color: #ff073a; /* Neon Red Bullet */
+  margin-right: 10px;
+}
+
+
 
 
 /* Right Column - Image */

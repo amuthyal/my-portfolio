@@ -61,7 +61,24 @@ const MainContent = () => (
           integrating intelligent automation and <span className="highlight">natural language processing </span> 
           to improve user experiences and operational efficiency.
         </p>
-      </div>
+
+    {/* Technologies Section */}
+    <h3 className="tech-title">Technologies I’ve Been Working With Recently:</h3>
+    <div className="tech-container">
+      <ul className="tech-list">
+        <li>JavaScript (ES6+)</li>
+        <li>TypeScript</li>
+        <li>React</li>
+      </ul>
+      <ul className="tech-list">
+        <li>Angular</li>
+        <li>Node.js</li>
+        <li>AWS</li>
+      </ul>
+    </div>
+  </div>
+
+      
 
       {/* Right Column - Image */}
       <div className="about-image">
