@@ -1,0 +1,23 @@
+/* Sidebar  */
+.sidebar {
+    position: fixed;
+    left: 60px; /* Increased from 40px to 60px */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+  }
+  
+  /* Sidebar Icons */
+  .sidebar-icon {
+    font-size: 28px;
+    color: #b0b0b0; /* Default Grey */
+    transition: 0.3s ease-in-out;
+  }
+  
+  .sidebar-icon:hover {
+    color: #ff073a; /* Neon Red on Hover */
+  }
+  

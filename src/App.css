@@ -1,10 +1,11 @@
 /* Global Styles */
-body {
+body, html {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #2c2c2c;
   color: white;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 /* Utility Classes */

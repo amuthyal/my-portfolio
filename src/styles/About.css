@@ -53,7 +53,7 @@
   }
   
   .tech-list li::before {
-    content: "✔";
+    content: "➤";
     color: #ff073a;
     font-size: 14px;
     margin-right: 8px;
