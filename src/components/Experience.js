@@ -5,9 +5,9 @@ const experienceData = [
   {
     id: 1,
     title: "Full Stack Developer",
-    company: "PwC - Contract",
+    company: "PwC - Contract", // Full company name for job details
+    sidebarName: "PwC", // Short name for sidebar
     duration: "Sep 2021 – Present",
-    location: "Tampa, Florida - Remote",
     responsibilities: [
       "Contributed to the development of the Astro app for PwC, working with a team of 20 engineers to integrate the app with firm systems for calendar tracking, timesheets, benefits, and goal management.",
       "Developed a marketplace dashboard using Angular and Node.js, featuring a dynamic carousel of opportunities generated in real-time based on API results.",
@@ -19,9 +19,9 @@ const experienceData = [
   {
     id: 2,
     title: "Full Stack Developer",
-    company: "CRMC - Contract",
+    company: "CRMC - Contract", // Full company name for job details
+    sidebarName: "CRMC", // Short name for sidebar
     duration: "Nov 2019 - Sep 2021",
-    location: "Carrollton, Texas",
     responsibilities: [
       "Contributed in the development of an EHR application, enhancing order accuracy by 15% and reducing administrative errors by 5%. Streamlined workflows for 300+ healthcare providers, improving patient care and operational efficiency.",
       "Architected and integrated medical procedure data from Carevue with billing systems in the Revenue Cycle Management (RCM) department, enhancing data flow and increasing billing accuracy by 7%. Reduced billing errors by 4% and cut claim processing time by 10%.",
@@ -38,7 +38,7 @@ const Experience = () => {
       <h2 className="section-title">Where I’ve Worked</h2>
       <div className="experience-layout">
         
-        {/* Sidebar with Company Names */}
+        {/* Sidebar with Company Names (Short Names Only) */}
         <div className="experience-sidebar">
           {experienceData.map((job) => (
             <button
@@ -46,23 +46,30 @@ const Experience = () => {
               className={`sidebar-item ${selectedJob.id === job.id ? "active" : ""}`}
               onClick={() => setSelectedJob(job)}
             >
-              {job.company}
+              {job.sidebarName} {/* Show short name in sidebar */}
             </button>
           ))}
         </div>
 
         {/* Work Details Frame */}
         <div className="experience-content">
-          <h3>{selectedJob.title}</h3>
-          <h4>{selectedJob.company}</h4>
-          <p>{selectedJob.duration} - {selectedJob.location}</p>
+          {/* Top Section: Job Title + Company Name + Duration */}
+          <div className="experience-header">
+            <h3>
+              {selectedJob.title} 
+              <span className="company-name"> @ {selectedJob.company}</span>
+            </h3>
+            <p className="job-duration">{selectedJob.duration}</p>
+          </div>
 
-          {/* Responsibilities Section */}
-          <ul>
-            {selectedJob.responsibilities.map((task, index) => (
-              <li key={index}>{task}</li>
-            ))}
-          </ul>
+          {/* Bottom Section: Job Responsibilities */}
+          <div className="experience-body">
+            <ul>
+              {selectedJob.responsibilities.map((task, index) => (
+                <li key={index}>{task}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

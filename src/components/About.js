@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/About.css";
+import profileImg from "../Images/profile.jpg"; 
 
 const About = () => {
   return (
@@ -39,7 +40,7 @@ const About = () => {
 
       {/* Right Column - Profile Image */}
       <div className="about-image">
-        <img src="/images/profile.jpg" alt="Akhila Muthyala" />
+        <img src={profileImg} alt="Akhila Muthyala" />
       </div>
     </section>
   );

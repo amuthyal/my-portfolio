@@ -1,104 +1,131 @@
 /* EXPERIENCE SECTION */
 #experience {
-    padding: 80px 10%; /* Adjusted for fixed navbar */
+    padding: 80px 10%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-  
-  /* Layout: Fixed Sidebar + Fixed Content Frame */
-  .experience-layout {
+    background-color: #0a192f; /* Dark Navy Blue */
+}
+
+/* Section Title - More Space Below */
+.section-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px; /* Increased from default */
+}
+
+/* Layout: Fixed Sidebar + Fixed Content Frame */
+.experience-layout {
     display: flex;
-    gap: 40px;
+    gap: 50px;
     align-items: flex-start;
-  }
-  
-  /* FIXED SIDEBAR (COMPANY LIST) */
-  .experience-sidebar {
-    width: 250px; /* Fixed width */
-    height: 400px; /* Fixed height */
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    overflow-y: auto; /* Scrollable if needed */
-    flex-shrink: 0; /* Prevents resizing */
-  }
-  
-  /* Sidebar Items */
-  .sidebar-item {
+}
+
+
+/* FIXED SIDEBAR (COMPANY LIST) */
+.experience-sidebar {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Sidebar Vertical Line */
+.experience-sidebar::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: rgba(136, 146, 176, 0.3); /* Muted Line */
+}
+
+/* Sidebar Items */
+.sidebar-item {
     background: transparent;
     border: none;
-    color: #b0b0b0;
+    color: #8892b0; /* Light grey-blue text */
     font-size: 16px;
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 12px 15px;
     text-align: left;
     transition: 0.3s ease-in-out;
     width: 100%;
-  }
-  
-  .sidebar-item:hover {
-    color: #ff073a;
-  }
-  
-  .sidebar-item.active {
-    color: #ff073a;
-    font-weight: bold;
-    border-left: 3px solid #ff073a;
-    padding-left: 12px;
-  }
-  
-  /* FIXED JOB DETAILS FRAME */
-  .experience-content {
-    width: 700px; /* Fixed width */
-    height: 400px; /* Fixed height */
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    overflow-y: auto; /* Scrollable if content overflows */
-    flex-shrink: 0; /* Prevents resizing */
-  }
-  
-  /* Job Titles */
-  .experience-content h3 {
-    color: white;
-    font-size: 20px;
-  }
-  
-  /* Company Names */
-  .experience-content h4 {
-    color: #ff073a;
-    font-size: 18px;
-  }
-  
-  /* Dates */
-  .experience-content p {
-    color: #b0b0b0;
-    font-size: 16px;
-  }
-  
-  /* RESPONSIBILITIES LIST */
-  .experience-content ul {
-    list-style: none;  /* Removes default bullet points */
-    padding-left: 0;
-    color: #b0b0b0;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  /* Custom Bullet Points (Arrow) */
-  .experience-content ul li {
     position: relative;
-    padding-left: 20px;  /* Space for the bullet */
-  }
-  
-  /* Ensure Bullet is an Arrow */
-  .experience-content ul li::before {
-    content: "➤";  /* Arrow bullet */
-    color: #ff073a; /* Neon red */
-    font-size: 16px;
+}
+
+/* Highlight the Selected Company */
+.sidebar-item.active {
+    color: #64ffda; /* Neon Blue */
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+/* Active Indicator Bar */
+.sidebar-item.active::before {
+    content: "";
     position: absolute;
     left: 0;
-    top: 2px;
-  }
-  
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 4px;
+    background-color: #64ffda; /* Neon Blue Indicator */
+    border-radius: 2px;
+}
+
+/* JOB DETAILS FRAME */
+.experience-content {
+    flex: 1;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Job Title & Company */
+.experience-header h3 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Highlighted Company Name */
+.company-name {
+    color: #64ffda; /* Neon Blue */
+    font-weight: bold;
+}
+
+/* Duration */
+.job-duration {
+    color: #8892b0;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Job Responsibilities */
+.experience-body ul {
+    list-style: none;
+    padding-left: 0;
+    color: #8892b0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Custom Bullet Points - Small Triangle */
+.experience-body ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.experience-body ul li::before {
+    content: "▹";  /* Small Triangle */
+    color: #64ffda; /* Neon Blue */
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 1px;
+}

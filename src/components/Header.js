@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-scroll";
+import resume from "../assets/resume.pdf"; // Import the resume file
 import "../styles/Header.css";
 
 const Header = () => {
@@ -6,11 +8,14 @@ const Header = () => {
     <header className="header">
       <nav>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><button className="resume-btn">Resume</button></li>
+          <li><Link to="about" smooth={true} duration={500}>About</Link></li>
+          <li><Link to="experience" smooth={true} duration={500}>Experience</Link></li>
+          <li><Link to="projects" smooth={true} duration={500}>Projects</Link></li>
+          <li><Link to="contact" smooth={true} duration={500}>Contact</Link></li>
+          {/* Resume Button */}
+          <li>
+            <a href={resume} download className="resume-btn">Resume</a>
+          </li>
         </ul>
       </nav>
     </header>

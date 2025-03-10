@@ -1,15 +1,112 @@
 /* PROJECTS SECTION */
 #projects {
-    padding: 60px 15%;
-    text-align: left;
-  }
-  
-  .section-title {
-    color: white;
-    font-size: 24px;
-  }
-  
-  .text-gray {
-    color: #b0b0b0;
-  }
-  
+  background-color: #0a192f; /* Dark Navy Blue */
+  padding: 80px 10%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section Title */
+.section-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* CAROUSEL CONTAINER */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 600px; /* Adjust width as needed */
+}
+
+/* PROJECT SLIDE */
+.project-slide {
+  background-color: #112240; /* Dark navy card background */
+  padding: 20px;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 250px;
+  text-align: center;
+  position: relative; /* Ensures absolute positioning works */
+}
+
+/* Folder Icon (Slightly Moved from Corner) */
+.folder-icon {
+  position: absolute;
+  top: 20px;  /* Moves it down slightly */
+  left: 25px; /* Moves it more to the right */
+  font-size: 36px; /* Increased size */
+  color: #64ffda; /* Neon Blue */
+}
+
+/* Project Title - Neon Blue */
+.project-title {
+  color: #64ffda; /* Neon Blue */
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 60px; /* Adjusted to avoid folder icon overlap */
+}
+
+/* Project Description */
+.project-description {
+  color: #8892b0;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Technology Stack */
+.tech-stack {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tech-item {
+  color: #8892b0;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* LEFT & RIGHT ARROWS */
+.arrow {
+  background: transparent;
+  border: none;
+  color: #64ffda; /* Neon Blue */
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s ease-in-out;
+  z-index: 10; /* Ensure arrows are visible */
+  opacity: 1; /* Ensure they are visible */
+}
+
+/* Left Arrow */
+.arrow.left {
+  left: -60px; /* Move left for spacing */
+}
+
+/* Right Arrow */
+.arrow.right {
+  right: -60px; /* Move right for spacing */
+}
+
+/* Hover Effect */
+.arrow:hover {
+  color: #ffffff; /* White on Hover */
+}

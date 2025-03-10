@@ -4,9 +4,16 @@ import "../styles/Contact.css";
 const Contact = () => {
   return (
     <section id="contact">
-      <h2 className="section-title">Contact</h2>
-      <p className="text-gray">Feel free to reach out to me!</p>
-      <a href="mailto:your.email@example.com" className="contact-btn">Say Hello</a>
+      <p className="contact-heading">04. What's Next?</p>
+      <h2 className="contact-title">Get In Touch</h2>
+      <p className="contact-description">
+        I'm actively exploring new opportunities and always open to connecting!
+        Feel free to reach out if you have any full-time opportunities, questions, or just want to say hello—
+        I’ll do my best to respond!
+      </p>
+      <a href="mailto:muthyala.akhila07@gmail.com" className="contact-button">
+        Say Hello
+      </a>
     </section>
   );
 };
