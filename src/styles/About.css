@@ -6,102 +6,128 @@
   padding: 60px 15%;
   min-height: 100vh;
   box-sizing: border-box;
-  background-color: #0a192f; /* Dark Navy Blue */
 }
 
 /* Left Column - Text */
 .about-text {
   flex: 1;
-  text-align: justify;
+  text-align: left; /* ✅ Left-align the text */
 }
 
-/* "About Me" Heading - Bigger and White */
-.about-text h2 {
-  color: #ffffff; /* White */
-  font-size: 32px; /* Increased size */
+/* ✅ About Me Heading with Line */
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* About Me Title */
+.about-header h2 {
+  color: white;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin: 0;
+}
+
+/* ✅ Line Next to "About Me" */
+.about-header::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background: #8892b0; /* Light Grey-Blue */
 }
 
 /* About Me Paragraphs */
 .about-text p {
-  color: #8892b0;
+  color: #b0b0b0;
   font-size: 16px;
   line-height: 1.5;
 }
 
 /* Technologies Section */
 .tech-title {
-  color: #8892b0;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #b0b0b0;
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 20px;
 }
 
-/* Two-Column Tech List */
+/* Tech List */
 .tech-container {
   display: flex;
-  gap: 50px;
-  margin-top: 10px;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .tech-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #8892b0;
+  color: #b0b0b0;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 2;
+  width: 48%;
+  text-align: left; /* ✅ Left-align tech items too */
 }
 
-/* Custom Bullet Points - Older Arrow `➤` */
-.tech-list li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 5px;
-}
-
+/* Custom Bullet Points */
 .tech-list li::before {
-  content: "➤";  /* Older Arrow */
+  content: "➤";
   color: #64ffda; /* Neon Blue */
   font-size: 16px;
-  position: absolute;
-  left: 0;
-  top: 2px;
+  margin-right: 10px;
+  display: inline-block;
 }
 
-/* RIGHT COLUMN - PROFILE IMAGE */
+/* Right Column - Image */
 .about-image {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  position: relative;
 }
 
-/* Image Styling with Overlay */
 .about-image img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 5px;
-  filter: grayscale(100%) contrast(1.2) brightness(1.1) opacity(0.9);
-  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
 }
 
-/* Hover Effect - Restores Original Color */
-.about-image img:hover {
-  filter: grayscale(0%) contrast(1) brightness(1);
-}
+/* ✅ MOBILE VIEW - Stack Text on Top, Image Below */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column; /* Stack items vertically */
+    text-align: left;
+    padding: 40px 10%;
+  }
 
-/* Neon Blue Frame */
-.about-image::after {
-  content: "";
-  position: absolute;
-  width: 260px; /* Slightly larger than the image */
-  height: 260px;
-  border: 2px solid #64ffda; /* Neon Blue Border */
-  border-radius: 5px;
-  top: 10px;
-  left: 10px;
-  z-index: -1;
+  /* ✅ Ensure Line is Present on Mobile */
+  .about-header {
+    justify-content: left;
+  }
+
+  /* Technologies List in Single Column */
+  .tech-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tech-list {
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Center Image */
+  .about-image {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .about-image img {
+    width: 200px; /* Smaller size for mobile */
+    height: 200px;
+  }
 }

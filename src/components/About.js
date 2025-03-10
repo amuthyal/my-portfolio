@@ -5,8 +5,12 @@ import profileImg from "../Images/profile.jpg";
 const About = () => {
   return (
     <section id="about">
+      {/* ✅ About Me Heading with Line */}
       <div className="about-text">
-        <h2>About Me</h2>
+        <div className="about-header">
+          <h2>About Me</h2>
+        </div>
+
         <p>
           With over <span className="highlight">five years of experience</span> in software engineering, 
           I have built a strong foundation in front-end and full-stack development, specializing in modern 
@@ -38,7 +42,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Right Column - Profile Image */}
+      {/* ✅ Image Below in Mobile */}
       <div className="about-image">
         <img src={profileImg} alt="Akhila Muthyala" />
       </div>
