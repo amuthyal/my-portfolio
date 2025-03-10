@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Sidebar.css";
 import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa"; // React Icons
 
+
 const Sidebar = () => {
   return (
     <div className="sidebar">

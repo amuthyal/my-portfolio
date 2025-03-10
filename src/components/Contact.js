@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Contact.css";
+import Sidebar from "./Sidebar"; // Import Sidebar
+
 
 const Contact = () => {
   return (
@@ -14,6 +16,8 @@ const Contact = () => {
       <a href="mailto:muthyala.akhila07@gmail.com" className="contact-button">
         Say Hello
       </a>
+       {/* Sidebar now appears below button in mobile */}
+       <Sidebar />
     </section>
   );
 };

@@ -1,23 +1,56 @@
-/* Sidebar  */
+/* SIDEBAR */
 .sidebar {
-    position: fixed;
-    left: 60px; /* Increased from 40px to 60px */
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 1000;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Vertical layout on desktop */
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+}
+
+/* Sidebar Icons */
+.sidebar a {
+  color: #64ffda; /* Neon Blue */
+  font-size: 24px;
+  transition: 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+  color: white;
+}
+
+/* Sidebar Line */
+.sidebar::after {
+  content: "";
+  width: 2px;
+  height: 80px;
+  background: #64ffda;
+  margin-top: 10px;
+}
+
+/* ✅ MOBILE VIEW - Move Sidebar Below "Say Hello" Button & Hide from Header */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative !important; /* Remove fixed position */
+    bottom: auto;
+    left: auto;
+    flex-direction: row; /* Make icons horizontal */
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 30px; /* Space between "Say Hello" button */
+    z-index: 1; /* Ensure it does not appear over header */
   }
-  
-  /* Sidebar Icons */
-  .sidebar-icon {
-    font-size: 28px;
-    color: #b0b0b0; /* Default Grey */
-    transition: 0.3s ease-in-out;
+
+  /* Hide Sidebar from Header */
+  .header .sidebar {
+    display: none !important;
   }
-  
-  .sidebar-icon:hover {
-    color: #64ffda; /* Neon blue */
+
+  /* Remove Vertical Line */
+  .sidebar::after {
+    display: none;
   }
-  
+}
