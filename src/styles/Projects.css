@@ -1,7 +1,7 @@
 /* PROJECTS SECTION */
 #projects {
   background-color: #0a192f; /* Dark Navy Blue */
-  padding: 80px 10%;
+  padding: 60px 5%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,65 +10,63 @@
 
 /* Section Title */
 .section-title {
-  color: #ffffff;
+  color: white;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 30px;
+  text-align: center;
 }
 
-/* CAROUSEL CONTAINER */
-.carousel {
+/* ✅ Mobile View: Stacked Project Cards */
+.project-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 600px; /* Adjust width as needed */
+  flex-direction: column;
+  gap: 20px;
+  width: 100%; /* Ensures Cards Fit Screen */
 }
 
-/* PROJECT SLIDE */
-.project-slide {
+/* ✅ PROJECT CARD */
+.project-card {
   background-color: #112240; /* Dark navy card background */
   padding: 20px;
   border-radius: 8px;
-  transition: 0.3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  min-height: 250px;
-  text-align: center;
-  position: relative; /* Ensures absolute positioning works */
+  width: calc(100% - 20px); /* ✅ Added spacing on the right */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative; /* ✅ Ensures folder icon stays inside */
 }
 
-/* Folder Icon (Slightly Moved from Corner) */
+/* ✅ Folder Icon */
 .folder-icon {
-  position: absolute;
-  top: 20px;  /* Moves it down slightly */
-  left: 25px; /* Moves it more to the right */
-  font-size: 36px; /* Increased size */
+  font-size: 30px;
   color: #64ffda; /* Neon Blue */
+  position: absolute;
+  top: 15px; /* ✅ Adjusted to top-left corner */
+  left: 15px;
 }
 
-/* Project Title - Neon Blue */
+/* Project Title */
 .project-title {
   color: #64ffda; /* Neon Blue */
   font-size: 18px;
   font-weight: bold;
-  margin-top: 60px; /* Adjusted to avoid folder icon overlap */
+  margin-top: 40px; /* ✅ Space to avoid overlapping with icon */
 }
 
 /* Project Description */
 .project-description {
   color: #8892b0;
   font-size: 14px;
-  margin-top: 10px;
   line-height: 1.4;
 }
 
 /* Technology Stack */
 .tech-stack {
-  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
 }
 
@@ -81,32 +79,82 @@
   text-transform: uppercase;
 }
 
+/* ✅ Desktop View: Carousel */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 500px;
+}
+
+/* PROJECT SLIDE */
+.project-slide {
+  background-color: #112240;
+  padding: 20px;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 250px;
+  text-align: center;
+  position: relative; /* ✅ Ensures folder icon is inside */
+}
+
+/* ✅ Folder Icon in Web View (Top Left) */
+.project-slide .folder-icon {
+  top: 15px;
+  left: 15px;
+  position: absolute;
+}
+
 /* LEFT & RIGHT ARROWS */
 .arrow {
   background: transparent;
   border: none;
-  color: #64ffda; /* Neon Blue */
-  font-size: 30px;
+  color: #64ffda;
+  font-size: 24px;
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   transition: 0.3s ease-in-out;
-  z-index: 10; /* Ensure arrows are visible */
-  opacity: 1; /* Ensure they are visible */
 }
 
-/* Left Arrow */
 .arrow.left {
-  left: -60px; /* Move left for spacing */
+  left: -40px;
 }
 
-/* Right Arrow */
 .arrow.right {
-  right: -60px; /* Move right for spacing */
+  right: -40px;
 }
 
-/* Hover Effect */
 .arrow:hover {
   color: #ffffff; /* White on Hover */
+}
+
+/* ✅ Ensure Proper Fit in Mobile */
+@media (max-width: 768px) {
+  .project-list {
+    width: 100%;
+  }
+
+  .project-card {
+    width: calc(100% - 20px); /* ✅ Added spacing on the right */
+    padding: 15px;
+    margin-right: auto; /* ✅ Ensure spacing on right */
+  }
+
+  .project-title {
+    font-size: 16px;
+  }
+
+  .project-description {
+    font-size: 13px;
+  }
+
+  .tech-item {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
 }
