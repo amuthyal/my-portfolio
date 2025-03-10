@@ -13,7 +13,20 @@
   z-index: 1000;
   height: 70px;
   box-sizing: border-box;
+  transition: transform 0.3s ease-in-out; /* Smooth transition effect */
 }
+
+/* Hide Header on Scroll Down */
+.header.hide {
+  transform: translateY(-100%); /* Move header up out of view */
+}
+
+/* Show Header on Scroll Up */
+.header.show {
+  transform: translateY(0); /* Bring header back */
+}
+
+
 
 .header ul {
   list-style: none;
