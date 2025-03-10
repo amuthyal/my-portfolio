@@ -1,53 +1,104 @@
 /* EXPERIENCE SECTION */
 #experience {
-    padding: 60px 15%;
-    min-height: 100vh;
-    text-align: left;
-  }
-  
-  /* Section Title */
-  .section-title {
-    color: white;
-    font-size: 24px;
-    margin-bottom: 30px;
-  }
-  
-  /* Experience Container */
-  .experience-container {
+    padding: 80px 10%; /* Adjusted for fixed navbar */
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    min-height: 100vh;
   }
   
-  /* Experience Item */
-  .experience-item {
+  /* Layout: Fixed Sidebar + Fixed Content Frame */
+  .experience-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  /* FIXED SIDEBAR (COMPANY LIST) */
+  .experience-sidebar {
+    width: 250px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    overflow-y: auto; /* Scrollable if needed */
+    flex-shrink: 0; /* Prevents resizing */
+  }
+  
+  /* Sidebar Items */
+  .sidebar-item {
+    background: transparent;
+    border: none;
+    color: #b0b0b0;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-align: left;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .sidebar-item:hover {
+    color: #ff073a;
+  }
+  
+  .sidebar-item.active {
+    color: #ff073a;
+    font-weight: bold;
+    border-left: 3px solid #ff073a;
+    padding-left: 12px;
+  }
+  
+  /* FIXED JOB DETAILS FRAME */
+  .experience-content {
+    width: 700px; /* Fixed width */
+    height: 400px; /* Fixed height */
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 7, 58, 0.5);
+    overflow-y: auto; /* Scrollable if content overflows */
+    flex-shrink: 0; /* Prevents resizing */
   }
   
   /* Job Titles */
-  .experience-item h3 {
+  .experience-content h3 {
     color: white;
     font-size: 20px;
   }
   
   /* Company Names */
-  .experience-item h4 {
+  .experience-content h4 {
     color: #ff073a;
     font-size: 18px;
   }
   
   /* Dates */
-  .experience-item p {
+  .experience-content p {
     color: #b0b0b0;
     font-size: 16px;
   }
   
-  /* Responsibilities */
-  .experience-item ul {
+  /* RESPONSIBILITIES LIST */
+  .experience-content ul {
+    list-style: none;  /* Removes default bullet points */
+    padding-left: 0;
     color: #b0b0b0;
     font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Custom Bullet Points (Arrow) */
+  .experience-content ul li {
+    position: relative;
+    padding-left: 20px;  /* Space for the bullet */
+  }
+  
+  /* Ensure Bullet is an Arrow */
+  .experience-content ul li::before {
+    content: "➤";  /* Arrow bullet */
+    color: #ff073a; /* Neon red */
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 2px;
   }
   
