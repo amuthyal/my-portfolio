@@ -13,31 +13,46 @@
   z-index: 1000;
   height: 70px;
   box-sizing: border-box;
-  transition: transform 0.3s ease-in-out; /* Smooth transition effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Hide Header on Scroll Down */
 .header.hide {
-  transform: translateY(-100%); /* Move header up out of view */
+  transform: translateY(-100%);
 }
 
 /* Show Header on Scroll Up */
 .header.show {
-  transform: translateY(0); /* Bring header back */
+  transform: translateY(0);
 }
 
-
-
-.header ul {
+/* NAVIGATION LINKS */
+.nav-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  align-items: center;
   gap: 30px;
 }
 
-.header a {
+/* Ensure Navigation is Always Visible on Desktop */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+    position: relative;
+    transform: none;
+    width: auto;
+    height: auto;
+    background: transparent;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* NAVIGATION LINKS STYLE */
+.nav-links li {
+  text-align: center;
+}
+
+.nav-links a {
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -45,28 +60,91 @@
   transition: 0.3s ease-in-out;
 }
 
-.header a:hover {
-  color: #64ffda; /* Neon Blue Hover */
+.nav-links a:hover {
+  color: #64ffda; /* Neon Blue */
 }
 
 /* Resume Button */
 .resume-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 2px solid #64ffda; /* Neon Blue Border */
+  border: 2px solid #64ffda;
   border-radius: 5px;
   background-color: transparent;
-  color: #64ffda; /* Neon Blue */
+  color: white;
   padding: 8px 15px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   text-decoration: none;
 }
 
-.resume-button:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-  color: #ffffff;
+.resume-btn:hover {
+  background-color: #64ffda;
+  color: black;
+}
+
+/* ✅ MOBILE MENU - Fullscreen, Fixed Navigation */
+@media (max-width: 768px) {
+  /* Navigation Covers Entire Screen */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; /* Fullscreen height */
+    background: #112240; /* Darker Navy */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;
+  }
+
+  /* When Menu is Open, It Covers Everything */
+  .nav-links.open {
+    transform: translateX(0);
+    height: 100vh; /* Make sure it covers the full screen */
+    width: 100vw;
+    overflow: hidden; /* Prevent scrolling inside */
+  }
+
+  /* ✅ Prevent Page Scroll When Menu is Open */
+  body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+  }
+
+  /* ✅ Hamburger Menu Styling */
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 11000; /* Ensure it's always on top */
+  }
+
+  /* Close (X) Button */
+  .close-icon {
+    font-size: 32px;
+    color: #64ffda; /* Neon Blue */
+  }
+
+  .close-icon:hover {
+    color: white;
+  }
+}
+
+/* HIDE HAMBURGER MENU & X ON DESKTOP */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
 }
