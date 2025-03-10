@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/amuthyal/my-portfolio/static/css/main.053ad606.css",
-    "main.js": "/amuthyal/my-portfolio/static/js/main.d3a29cc8.js",
+    "main.css": "/amuthyal/my-portfolio/static/css/main.aaefb2cb.css",
+    "main.js": "/amuthyal/my-portfolio/static/js/main.95137e45.js",
     "static/js/453.acca0757.chunk.js": "/amuthyal/my-portfolio/static/js/453.acca0757.chunk.js",
+    "static/media/profile.jpg": "/amuthyal/my-portfolio/static/media/profile.5db9de0aee745e6b6bf6.jpg",
+    "static/media/resume.pdf": "/amuthyal/my-portfolio/static/media/resume.3bd1e4c1e686cfa88b5b.pdf",
     "index.html": "/amuthyal/my-portfolio/index.html",
-    "main.053ad606.css.map": "/amuthyal/my-portfolio/static/css/main.053ad606.css.map",
-    "main.d3a29cc8.js.map": "/amuthyal/my-portfolio/static/js/main.d3a29cc8.js.map",
+    "main.aaefb2cb.css.map": "/amuthyal/my-portfolio/static/css/main.aaefb2cb.css.map",
+    "main.95137e45.js.map": "/amuthyal/my-portfolio/static/js/main.95137e45.js.map",
     "453.acca0757.chunk.js.map": "/amuthyal/my-portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.053ad606.css",
-    "static/js/main.d3a29cc8.js"
+    "static/css/main.aaefb2cb.css",
+    "static/js/main.95137e45.js"
   ]
 }
