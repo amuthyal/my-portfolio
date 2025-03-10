@@ -1,77 +1,121 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Experience.css";
 
 const experienceData = [
   {
-    id: 1,
+    company: "PwC",
     title: "Full Stack Developer",
-    company: "PwC - Contract", // Full company name for job details
-    sidebarName: "PwC", // Short name for sidebar
-    duration: "Sep 2021 – Present",
+    duration: "Sept 2021 - Present",
     responsibilities: [
-      "Contributed to the development of the Astro app for PwC, working with a team of 20 engineers to integrate the app with firm systems for calendar tracking, timesheets, benefits, and goal management.",
-      "Developed a marketplace dashboard using Angular and Node.js, featuring a dynamic carousel of opportunities generated in real-time based on API results.",
-      "Engineered robust back-end services using Node.js and Express, implementing GraphQL APIs for efficient data querying and improving response times for complex requests by 25%.",
-      "Enhanced PwC's chatbot efficiency by integrating it with Amazon Kendra and optimizing prompt analysis using Dialogflow, resulting in a 15% increase in user interactions and improved response accuracy.",
-      "Developed batch processing workflows using AWS Lambda to enhance scalability and flexibility."
-    ]
+      "Integrating the app with firm-wide systems for calendar tracking, timesheets, and goal management, improving operational efficiency by 15%.",
+      "Designed and implemented automated testing strategies to maintain high code quality and reduce production bugs by 20%.",
+      "Developed reusable React components following component-based architecture, improving maintainability and development speed by 30%.",
+      "Optimized front-end performance by 30%, leveraging best practices such as lazy loading, code splitting, and memoization.",
+      "Integrated GraphQL APIs with React-based front-end, improving data-fetching efficiency by 25%.",
+    ],
   },
   {
-    id: 2,
+    company: "CRMC",
     title: "Full Stack Developer",
-    company: "CRMC - Contract", // Full company name for job details
-    sidebarName: "CRMC", // Short name for sidebar
-    duration: "Nov 2019 - Sep 2021",
+    duration: "Nov 2019 - Sept 2021",
     responsibilities: [
-      "Contributed in the development of an EHR application, enhancing order accuracy by 15% and reducing administrative errors by 5%. Streamlined workflows for 300+ healthcare providers, improving patient care and operational efficiency.",
-      "Architected and integrated medical procedure data from Carevue with billing systems in the Revenue Cycle Management (RCM) department, enhancing data flow and increasing billing accuracy by 7%. Reduced billing errors by 4% and cut claim processing time by 10%.",
-      "Designed and implemented scalable back-end services using Node.js and Express, optimizing API performance and facilitating seamless data exchange across healthcare systems."
-    ]
-  }
+      "Built front-end development for Electronic Health Record system using ReactJS and TypeScript, enhancing usability and reducing page load times by 30%.",
+      "Built responsive, accessible UI components, ensuring cross-device and cross-browser compatibility.",
+      "Developed and optimized RESTful and GraphQL APIs, improving data retrieval speeds by 20%.",
+      "Integrated Redux for state management, ensuring smooth data flow and UI consistency across the application.",
+      "Architected front-end workflows for 300+ healthcare providers, improving order accuracy by 15% and reducing administrative errors by 5%.",
+      "Designed secure authentication mechanisms using OAuth 2.0 and role-based access control (RBAC), ensuring HIPAA compliance.",
+    ],
+  },
 ];
 
 const Experience = () => {
-  const [selectedJob, setSelectedJob] = useState(experienceData[0]); // Default to first job
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // ✅ Detect Screen Resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section id="experience">
-      <h2 className="section-title">Where I’ve Worked</h2>
-      <div className="experience-layout">
-        
-        {/* Sidebar with Company Names (Short Names Only) */}
-        <div className="experience-sidebar">
-          {experienceData.map((job) => (
-            <button
-              key={job.id}
-              className={`sidebar-item ${selectedJob.id === job.id ? "active" : ""}`}
-              onClick={() => setSelectedJob(job)}
+      {/* ✅ Section Header */}
+      <div className="experience-header">
+        <h2>Where I've worked recently</h2>
+      </div>
+
+      {/* ✅ Mobile Tabs for Navigation */}
+      {isMobile && (
+        <div className="experience-tabs">
+          {experienceData.map((job, index) => (
+            <div
+              key={index}
+              className={`experience-tab ${activeIndex === index ? "active" : ""}`}
+              onClick={() => setActiveIndex(index)}
             >
-              {job.sidebarName} {/* Show short name in sidebar */}
-            </button>
+              {job.company}
+            </div>
           ))}
         </div>
+      )}
 
-        {/* Work Details Frame */}
-        <div className="experience-content">
-          {/* Top Section: Job Title + Company Name + Duration */}
-          <div className="experience-header">
-            <h3>
-              {selectedJob.title} 
-              <span className="company-name"> @ {selectedJob.company}</span>
-            </h3>
-            <p className="job-duration">{selectedJob.duration}</p>
+      {/* ✅ Desktop Sidebar */}
+      {!isMobile && (
+        <div className="experience-layout">
+          <div className="experience-sidebar">
+            {experienceData.map((job, index) => (
+              <button
+                key={index}
+                className={`sidebar-item ${activeIndex === index ? "active" : ""}`}
+                onClick={() => setActiveIndex(index)}
+              >
+                {job.company}
+              </button>
+            ))}
           </div>
 
-          {/* Bottom Section: Job Responsibilities */}
+          {/* ✅ Job Details Section */}
+          <div className="experience-content">
+            <h3 className="job-title">
+              {experienceData[activeIndex].title} @{" "}
+              <span className="company-name">{experienceData[activeIndex].company}</span>
+            </h3>
+            <p className="job-duration">{experienceData[activeIndex].duration}</p>
+
+            <div className="experience-body">
+              <ul>
+                {experienceData[activeIndex].responsibilities.map((task, i) => (
+                  <li key={i}>{task}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ✅ Mobile Job Details (Full Width) */}
+      {isMobile && (
+        <div className="experience-content mobile-content">
+          <h3 className="job-title">
+            {experienceData[activeIndex].title} @{" "}
+            <span className="company-name">{experienceData[activeIndex].company}</span>
+          </h3>
+          <p className="job-duration">{experienceData[activeIndex].duration}</p>
+
           <div className="experience-body">
             <ul>
-              {selectedJob.responsibilities.map((task, index) => (
-                <li key={index}>{task}</li>
+              {experienceData[activeIndex].responsibilities.map((task, i) => (
+                <li key={i}>{task}</li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

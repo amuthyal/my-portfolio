@@ -5,127 +5,166 @@
     flex-direction: column;
     min-height: 100vh;
     background-color: #0a192f; /* Dark Navy Blue */
-}
-
-/* Section Title - More Space Below */
-.section-title {
-    color: #ffffff;
+  }
+  
+  /* ✅ Updated Section Header */
+  .experience-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* ✅ Title */
+  .experience-header h2 {
+    color: white;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 50px; /* Increased from default */
-}
-
-/* Layout: Fixed Sidebar + Fixed Content Frame */
-.experience-layout {
+    margin: 0;
+  }
+  
+  /* ✅ Remove the Line Next to Title */
+  .experience-header::after {
+    content: "";
+    flex-grow: 1;
+    height: 2px;
+    background: transparent; /* ✅ Removed the Line */
+  }
+  
+  /* ✅ DESKTOP LAYOUT: Sidebar + Content */
+  .experience-layout {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: flex-start;
-}
-
-
-/* FIXED SIDEBAR (COMPANY LIST) */
-.experience-sidebar {
+  }
+  
+  /* ✅ FIXED SIDEBAR (Company List for Desktop) */
+  .experience-sidebar {
     width: 250px;
+    padding: 15px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    position: relative;
-}
-
-/* Sidebar Vertical Line */
-.experience-sidebar::before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: rgba(136, 146, 176, 0.3); /* Muted Line */
-}
-
-/* Sidebar Items */
-.sidebar-item {
+    /* ✅ Removed the Left Border Line */
+    border-left: none;
+  }
+  
+  /* Sidebar Items */
+  .sidebar-item {
     background: transparent;
     border: none;
-    color: #8892b0; /* Light grey-blue text */
+    color: #8892b0;
     font-size: 16px;
     cursor: pointer;
-    padding: 12px 15px;
+    padding: 10px;
     text-align: left;
     transition: 0.3s ease-in-out;
-    width: 100%;
-    position: relative;
-}
-
-/* Highlight the Selected Company */
-.sidebar-item.active {
-    color: #64ffda; /* Neon Blue */
+  }
+  
+  /* Active Sidebar Item - Highlighted in Neon Blue */
+  .sidebar-item.active {
+    color: #64ffda;
     font-weight: bold;
-    padding-left: 15px;
-}
-
-/* Active Indicator Bar */
-.sidebar-item.active::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 100%;
-    width: 4px;
-    background-color: #64ffda; /* Neon Blue Indicator */
-    border-radius: 2px;
-}
-
-/* JOB DETAILS FRAME */
-.experience-content {
-    flex: 1;
-    background: transparent;
+    border-left: 3px solid #64ffda;
+    padding-left: 12px;
+  }
+  
+  /* ✅ FIXED JOB DETAILS FRAME */
+  .experience-content {
+    flex-grow: 1;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-}
-
-/* Job Title & Company */
-.experience-header h3 {
-    color: #ffffff;
-    font-size: 22px;
+  }
+  
+  /* Job Title */
+  .job-title {
+    font-size: 18px;
+    color: white;
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* Highlighted Company Name */
-.company-name {
-    color: #64ffda; /* Neon Blue */
+  }
+  
+  /* Company Name */
+  .company-name {
+    color: #64ffda;
     font-weight: bold;
-}
-
-/* Duration */
-.job-duration {
+  }
+  
+  /* Duration */
+  .job-duration {
     color: #8892b0;
     font-size: 14px;
-    margin-bottom: 15px;
-}
-
-/* Job Responsibilities */
-.experience-body ul {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsibilities List */
+  .experience-body ul {
     list-style: none;
     padding-left: 0;
     color: #8892b0;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Custom Bullet Points - Small Triangle */
-.experience-body ul li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* ✅ Custom Bullet Points */
+  .experience-body ul li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
-}
-
-.experience-body ul li::before {
-    content: "▹";  /* Small Triangle */
-    color: #64ffda; /* Neon Blue */
-    font-size: 18px;
+    padding-left: 18px;
+    margin-bottom: 6px;
+  }
+  
+  .experience-body ul li::before {
+    content: "➤";
+    color: #64ffda;
+    font-size: 14px;
     position: absolute;
     left: 0;
-    top: 1px;
-}
+    top: 2px;
+  }
+  
+  /* ✅ MOBILE VIEW - Use Tabs Instead of Sidebar */
+  @media (max-width: 768px) {
+    #experience {
+      padding: 60px 5%;
+    }
+  
+    /* Hide Sidebar in Mobile */
+    .experience-sidebar {
+      display: none;
+    }
+  
+    /* ✅ Mobile Tabs */
+    .experience-tabs {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      justify-content: space-around;
+      /* ✅ Removed the Bottom Border Line */
+      border-bottom: none;
+    }
+  
+    .experience-tab {
+      font-size: 14px;
+      padding: 10px;
+      color: #8892b0;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      border-bottom: 2px solid transparent;
+    }
+  
+    /* ✅ Active Tab */
+    .experience-tab.active {
+      color: #64ffda;
+      font-weight: bold;
+      border-bottom: 2px solid #64ffda;
+    }
+  
+    /* ✅ Full Width Job Details */
+    .mobile-content {
+      width: 100%;
+      padding: 20px 15px;
+      box-sizing: border-box;
+    }
+  }
+  
