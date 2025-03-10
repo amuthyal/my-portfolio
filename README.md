@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 🚀 Akhila Muthyala - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📌 Overview
+This is my personal **portfolio website** showcasing my work, experience, projects, and technologies I’ve been working with. The website is built with **React** and styled using modern **CSS techniques** to ensure responsiveness across all devices.
 
-## Available Scripts
+It is currently **hosted on GitHub Pages** and will later be deployed on **AWS S3 + CloudFront** for improved performance and scalability.
 
-In the project directory, you can run:
+I've used brittanychiang.com for design inspiration to build my personal website from scratch.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ⚙️ Tech Stack
+- **Frontend**: React, JavaScript (ES6+), CSS, React Icons
+- **State Management**: React Hooks
+- **UI Components**: Styled Components, Flexbox & Grid Layout
+- **Routing**: React Router
+- **Deployment**: GitHub Pages (temporary), AWS S3 + CloudFront (final)
+- **Domain Management**: AWS Route 53
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
+✅ **Fully Responsive Design** - Works on desktop, tablet, and mobile devices  
+✅ **Dynamic Experience Section** - Click on companies to view job details dynamically  
+✅ **Projects Carousel** - Interactive project showcase with smooth navigation  
+✅ **Dark Mode Theme** - Sleek and modern UI with neon blue highlights  
+✅ **Custom Domain & Hosting** - Soon to be deployed on AWS for better performance  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🔧 Installation & Setup
+To run the portfolio locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2️⃣ Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install
 
-### `npm run eject`
+3️⃣ Start the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The portfolio will be available at http://localhost:3000/.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🚀 Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Temporary Hosting (GitHub Pages)
 
-## Learn More
+To deploy the website to GitHub Pages:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm run deploy
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Final Deployment (AWS S3 + CloudFront)
 
-### Code Splitting
+1. Build the project: npm run build
+2. Upload build/ folder to AWS S3.
+3. Configure AWS CloudFront for global delivery.
+4. Set up Route 53 for a custom domain.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+📩 Contact
+Akhila Muthyala
+📧 Email: your.email@example.com
+🌐 Portfolio: yourcustomdomain.com
+🔗 LinkedIn: linkedin.com/in/yourprofile
+💻 GitHub: github.com/YOUR_USERNAME
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🎉 Thanks for visiting! Let me know if you have any feedback. 😊🔥
