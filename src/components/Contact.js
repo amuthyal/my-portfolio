@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import useSectionObserver from "../hooks/useSectionObserver";
 
 const Contact = () => {
-  const { ref, inView } = useSectionObserver();
+  const { ref} = useSectionObserver();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -16,8 +16,9 @@ const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" ref={ref} className={`contact-section ${inView ? "visible" : ""}`}>
-      <p className="contact-heading">04. What's Next?</p>
+
+<section id="contact" ref={ref} className="contact-section visible">
+<p className="contact-heading">04. What's Next?</p>
       <h2 className="contact-title">Get In Touch</h2>
       <p className="contact-description">
         I'm actively exploring new opportunities and always open to connecting!

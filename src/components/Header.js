@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-scroll";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import resume from "../assets/resume.pdf";
 import "../styles/Header.css";
@@ -11,7 +10,7 @@ const Header = () => {
   const lastScrollY = useRef(0);
 
   // ✅ Detect Screen Resize
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -39,24 +38,47 @@ const Header = () => {
   // ✅ Toggle Mobile Menu
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
+    document.body.classList.toggle("menu-open", !menuOpen);
+  };
 
-    if (!menuOpen) {
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
+  // ✅ Scroll to Section with Smooth Animation
+  const handleScroll = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
+    if (isMobile) toggleMenu();
   };
 
   return (
     <header className={`header ${isVisible || !isMobile ? "show" : "hide"}`}>
       <nav className="nav-container">
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <li><Link to="about" smooth={true} duration={500} onClick={toggleMenu}>About</Link></li>
-          <li><Link to="experience" smooth={true} duration={500} onClick={toggleMenu}>Experience</Link></li>
-          <li><Link to="projects" smooth={true} duration={500} onClick={toggleMenu}>Projects</Link></li>
-          <li><Link to="contact" smooth={true} duration={500} onClick={toggleMenu}>Contact</Link></li>
           <li>
-            <a href={resume} download className="resume-btn" onClick={toggleMenu}>Resume</a>
+            <a href="#about" onClick={(e) => handleScroll(e, "about")}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#experience" onClick={(e) => handleScroll(e, "experience")}>
+              Experience
+            </a>
+          </li>
+          <li>
+            <a href="#projects" onClick={(e) => handleScroll(e, "projects")}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href={resume} download className="resume-btn" onClick={toggleMenu}>
+              Resume
+            </a>
           </li>
         </ul>
 

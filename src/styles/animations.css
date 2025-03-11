@@ -1,8 +1,9 @@
 /* 🚀 Default state: Sections start hidden */
 .section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+    opacity: 1;
+   /* transform: translateY(50px); */
+   transform: none !important;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   }
   
   /* ✅ Slow fade-in when section enters viewport */
