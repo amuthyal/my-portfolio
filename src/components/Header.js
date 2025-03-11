@@ -47,6 +47,11 @@ const Header = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+
+      // ✅ Ensure section becomes visible in case of animation
+      setTimeout(() => {
+        section.classList.add("visible");
+      }, 500);
     }
     if (isMobile) toggleMenu();
   };

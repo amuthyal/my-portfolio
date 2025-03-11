@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import About from "./components/About";
@@ -12,10 +12,13 @@ import "./App.css";
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  // ✅ Hide loading after animation
-  const handleLoadingFinish = () => {
-    setLoading(false);
-  };
+  useEffect(() => {
+    // ✅ Simulate loading animation, then show content
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust timing as needed
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -24,7 +27,7 @@ const App = () => {
 
       {/* ✅ Show loading first, then the page */}
       {loading ? (
-        <Loading onFinish={handleLoadingFinish} /> // ✅ Pass `onFinish` prop
+        <Loading />
       ) : (
         <div className="content fade-in">
           <Header />
