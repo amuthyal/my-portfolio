@@ -1,37 +1,87 @@
-/* Intro Section - Full Page */
-#intro {
-    height: 100vh; /* Full screen height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 15%;
-    box-sizing: border-box;
+/* ✅ Intro Section - Full Page */
+.intro-section {
+  height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 15%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+/* ✅ Smooth Fade-In */
+.intro-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Hi, my name is - Neon Blue */
+#intro h1 {
+  font-size: 28px;
+  font-weight: normal;
+  margin-bottom: 5px;
+  color: #64ffda; /* Neon Blue */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s ease-out forwards 0.5s;
+}
+
+/* ✅ Name - Bigger Size */
+#intro h3 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: white;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s ease-out forwards 0.7s;
+}
+
+/* ✅ Intro Text */
+.intro-text {
+  color: #b0b0b0; /* Grey text */
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s ease-out forwards 0.9s;
+}
+
+/* ✅ Fade-In & Slide-Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Hi, my name is - Neon Red */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Mobile Adjustments */
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 0 10%;
+    align-items: center;
+    text-align: center;
+  }
+
   #intro h1 {
-    font-size: 28px;
-    font-weight: normal;
-    margin-bottom: 5px;
-    color: #64ffda; /* Neon blue */
+    font-size: 24px;
   }
-  
-  /* Name - Bigger Size */
+
   #intro h3 {
-    font-size: 64px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: white;
+    font-size: 48px;
   }
-  
-  /* Intro Text */
+
   .intro-text {
-    color: #b0b0b0; /* Grey text */
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: justify;
-    max-width: 600px;
+    font-size: 16px;
   }
-  
+}

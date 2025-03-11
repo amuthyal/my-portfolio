@@ -1,170 +1,177 @@
 /* EXPERIENCE SECTION */
 #experience {
-    padding: 80px 10%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #0a192f; /* Dark Navy Blue */
+  padding: 80px 10%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0a192f; /* Dark Navy Blue */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Section becomes visible when inView */
+#experience.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Updated Section Header */
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* ✅ Title */
+.experience-header h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ✅ DESKTOP LAYOUT: Sidebar + Content */
+.experience-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ✅ FIXED SIDEBAR (Company List for Desktop) */
+.experience-sidebar {
+  width: 250px;
+  padding: 15px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Items */
+.sidebar-item {
+  background: transparent;
+  border: none;
+  color: #8892b0;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  transition: 0.3s ease-in-out;
+}
+
+/* Active Sidebar Item - Highlighted in Neon Blue */
+.sidebar-item.active {
+  color: #64ffda;
+  font-weight: bold;
+  border-left: 3px solid #64ffda;
+  padding-left: 12px;
+}
+
+/* ✅ Job Details Section */
+.experience-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.experience-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Job Title */
+.job-title {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Company Name */
+.company-name {
+  color: #64ffda; /* ✅ Neon Blue */
+  font-weight: bold;
+}
+
+/* Duration */
+.job-duration {
+  color: #8892b0;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Responsibilities List */
+.experience-body ul {
+  list-style: none;
+  padding-left: 0;
+  color: #8892b0;
+  font-size: 14px;
+  line-height: 1.5;
+  display: block;
+}
+
+/* ✅ Custom Bullet Points */
+.experience-body ul li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.experience-body ul li::before {
+  content: "➤";
+  color: #64ffda;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/* ✅ MOBILE VIEW - Tabs for Company List */
+@media (max-width: 768px) {
+  #experience {
+    padding: 60px 5%;
   }
-  
-  /* ✅ Updated Section Header */
-  .experience-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* ✅ Title */
-  .experience-header h2 {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  /* ✅ Remove the Line Next to Title */
-  .experience-header::after {
-    content: "";
-    flex-grow: 1;
-    height: 2px;
-    background: transparent; /* ✅ Removed the Line */
-  }
-  
-  /* ✅ DESKTOP LAYOUT: Sidebar + Content */
-  .experience-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-  }
-  
-  /* ✅ FIXED SIDEBAR (Company List for Desktop) */
+
+  /* Hide Sidebar in Mobile */
   .experience-sidebar {
-    width: 250px;
-    padding: 15px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    /* ✅ Removed the Left Border Line */
-    border-left: none;
+    display: none;
   }
-  
-  /* Sidebar Items */
-  .sidebar-item {
-    background: transparent;
-    border: none;
-    color: #8892b0;
+
+  /* ✅ Mobile Tabs */
+  .experience-tabs {
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    border-bottom: 2px solid #1a2a4a;
+    padding-bottom: 5px;
+  }
+
+  /* Mobile Company Names */
+  .experience-tab {
     font-size: 16px;
-    cursor: pointer;
     padding: 10px;
-    text-align: left;
+    color: #8892b0;
+    cursor: pointer;
     transition: 0.3s ease-in-out;
+    border-bottom: 2px solid transparent;
   }
-  
-  /* Active Sidebar Item - Highlighted in Neon Blue */
-  .sidebar-item.active {
-    color: #64ffda;
+
+  /* ✅ Active Tab - Highlighted in Neon Blue */
+  .experience-tab.active {
+    color: #64ffda; /* ✅ Neon Blue */
     font-weight: bold;
-    border-left: 3px solid #64ffda;
-    padding-left: 12px;
+    border-bottom: 2px solid #64ffda;
   }
-  
-  /* ✅ FIXED JOB DETAILS FRAME */
+
+  /* ✅ Mobile Job Details */
   .experience-content {
-    flex-grow: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    opacity: 1;
+    transform: none;
   }
-  
-  /* Job Title */
-  .job-title {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  /* Company Name */
-  .company-name {
-    color: #64ffda;
-    font-weight: bold;
-  }
-  
-  /* Duration */
-  .job-duration {
-    color: #8892b0;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  /* Responsibilities List */
-  .experience-body ul {
-    list-style: none;
-    padding-left: 0;
-    color: #8892b0;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  /* ✅ Custom Bullet Points */
-  .experience-body ul li {
-    position: relative;
-    padding-left: 18px;
-    margin-bottom: 6px;
-  }
-  
-  .experience-body ul li::before {
-    content: "➤";
-    color: #64ffda;
-    font-size: 14px;
-    position: absolute;
-    left: 0;
-    top: 2px;
-  }
-  
-  /* ✅ MOBILE VIEW - Use Tabs Instead of Sidebar */
-  @media (max-width: 768px) {
-    #experience {
-      padding: 60px 5%;
-    }
-  
-    /* Hide Sidebar in Mobile */
-    .experience-sidebar {
-      display: none;
-    }
-  
-    /* ✅ Mobile Tabs */
-    .experience-tabs {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      padding-bottom: 5px;
-      justify-content: space-around;
-      /* ✅ Removed the Bottom Border Line */
-      border-bottom: none;
-    }
-  
-    .experience-tab {
-      font-size: 14px;
-      padding: 10px;
-      color: #8892b0;
-      cursor: pointer;
-      transition: 0.3s ease-in-out;
-      border-bottom: 2px solid transparent;
-    }
-  
-    /* ✅ Active Tab */
-    .experience-tab.active {
-      color: #64ffda;
-      font-weight: bold;
-      border-bottom: 2px solid #64ffda;
-    }
-  
-    /* ✅ Full Width Job Details */
-    .mobile-content {
-      width: 100%;
-      padding: 20px 15px;
-      box-sizing: border-box;
-    }
-  }
-  
+}

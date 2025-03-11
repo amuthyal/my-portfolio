@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useSectionObserver from "../hooks/useSectionObserver";
 import "../styles/Experience.css";
 
 const experienceData = [
@@ -30,6 +31,7 @@ const experienceData = [
 ];
 
 const Experience = () => {
+  const { ref, inView } = useSectionObserver();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -43,29 +45,44 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience">
+    <section id="experience" ref={ref} className={`section ${inView ? "visible" : ""}`}>
       {/* ✅ Section Header */}
       <div className="experience-header">
         <h2>Where I've worked recently</h2>
       </div>
 
       {/* ✅ Mobile Tabs for Navigation */}
-      {isMobile && (
-        <div className="experience-tabs">
-          {experienceData.map((job, index) => (
-            <div
-              key={index}
-              className={`experience-tab ${activeIndex === index ? "active" : ""}`}
-              onClick={() => setActiveIndex(index)}
-            >
-              {job.company}
+      {isMobile ? (
+        <>
+          <div className="experience-tabs">
+            {experienceData.map((job, index) => (
+              <div
+                key={index}
+                className={`experience-tab ${activeIndex === index ? "active" : ""}`}
+                onClick={() => setActiveIndex(index)}
+              >
+                {job.company}
+              </div>
+            ))}
+          </div>
+          {/* ✅ Mobile Job Details (Fixed Visibility Issue) */}
+          <div className="experience-content visible">
+            <h3 className="job-title">
+              {experienceData[activeIndex].title} @{" "}
+              <span className="company-name">{experienceData[activeIndex].company}</span>
+            </h3>
+            <p className="job-duration">{experienceData[activeIndex].duration}</p>
+            <div className="experience-body">
+              <ul>
+                {experienceData[activeIndex].responsibilities.map((task, i) => (
+                  <li key={i}>{task}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-      )}
-
-      {/* ✅ Desktop Sidebar */}
-      {!isMobile && (
+          </div>
+        </>
+      ) : (
+        /* ✅ Desktop Sidebar */
         <div className="experience-layout">
           <div className="experience-sidebar">
             {experienceData.map((job, index) => (
@@ -80,13 +97,12 @@ const Experience = () => {
           </div>
 
           {/* ✅ Job Details Section */}
-          <div className="experience-content">
+          <div className="experience-content visible">
             <h3 className="job-title">
               {experienceData[activeIndex].title} @{" "}
               <span className="company-name">{experienceData[activeIndex].company}</span>
             </h3>
             <p className="job-duration">{experienceData[activeIndex].duration}</p>
-
             <div className="experience-body">
               <ul>
                 {experienceData[activeIndex].responsibilities.map((task, i) => (
@@ -94,25 +110,6 @@ const Experience = () => {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* ✅ Mobile Job Details (Full Width) */}
-      {isMobile && (
-        <div className="experience-content mobile-content">
-          <h3 className="job-title">
-            {experienceData[activeIndex].title} @{" "}
-            <span className="company-name">{experienceData[activeIndex].company}</span>
-          </h3>
-          <p className="job-duration">{experienceData[activeIndex].duration}</p>
-
-          <div className="experience-body">
-            <ul>
-              {experienceData[activeIndex].responsibilities.map((task, i) => (
-                <li key={i}>{task}</li>
-              ))}
-            </ul>
           </div>
         </div>
       )}

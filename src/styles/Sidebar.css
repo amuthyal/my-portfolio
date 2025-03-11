@@ -1,4 +1,4 @@
-/* SIDEBAR */
+/* ✅ Sidebar - Default Hidden State */
 .sidebar {
   position: fixed;
   left: 20px;
@@ -8,9 +8,18 @@
   align-items: center;
   gap: 20px;
   z-index: 1000;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
 }
 
-/* Sidebar Icons */
+/* ✅ Smooth Fade-In */
+.sidebar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Sidebar Icons */
 .sidebar a {
   color: #64ffda; /* Neon Blue */
   font-size: 24px;
@@ -19,15 +28,26 @@
 
 .sidebar a:hover {
   color: white;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* Sidebar Line */
+/* ✅ Sidebar Line */
 .sidebar::after {
   content: "";
   width: 2px;
   height: 80px;
   background: #64ffda;
   margin-top: 10px;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* ✅ Sidebar Line Appears with Sidebar */
+.sidebar.visible::after {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 /* ✅ MOBILE VIEW - Move Sidebar Below "Say Hello" Button & Hide from Header */

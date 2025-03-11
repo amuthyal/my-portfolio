@@ -1,4 +1,4 @@
-/* ABOUT SECTION */
+/* ✅ ABOUT SECTION */
 #about {
   display: flex;
   justify-content: space-between;
@@ -6,12 +6,30 @@
   padding: 60px 15%;
   min-height: 100vh;
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
 }
 
-/* Left Column - Text */
+/* ✅ Show About Section When in View */
+#about.visible {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+/* ✅ Left Column - Text */
 .about-text {
   flex: 1;
-  text-align: left; /* ✅ Left-align the text */
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* ✅ Show About Text */
+#about.visible .about-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ✅ About Me Heading with Line */
@@ -20,14 +38,15 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-/* About Me Title */
-.about-header h2 {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
+/* ✅ Show About Header */
+#about.visible .about-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ✅ Line Next to "About Me" */
@@ -35,25 +54,50 @@
   content: "";
   flex-grow: 1;
   height: 2px;
-  background: #8892b0; /* Light Grey-Blue */
+  background: #8892b0;
+  opacity: 0.6;
+  transform: scaleX(0);
+  transition: transform 1s ease-in-out;
 }
 
-/* About Me Paragraphs */
+#about.visible .about-header::after {
+  transform: scaleX(1);
+}
+
+/* ✅ About Me Paragraphs */
 .about-text p {
   color: #b0b0b0;
   font-size: 16px;
   line-height: 1.5;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-/* Technologies Section */
+/* ✅ Show Paragraphs */
+#about.visible .about-text p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Technologies Section */
 .tech-title {
   color: #b0b0b0;
   font-size: 16px;
   font-weight: normal;
   margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-/* Tech List */
+/* ✅ Show Tech Title */
+#about.visible .tech-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Technologies List */
 .tech-container {
   display: flex;
   justify-content: space-between;
@@ -69,28 +113,41 @@
   font-size: 16px;
   line-height: 2;
   width: 48%;
-  text-align: left; /* ✅ Left-align tech items too */
+  text-align: left;
 }
 
-/* Custom Bullet Points */
+/* ✅ Custom Bullet Points */
 .tech-list li::before {
   content: "➤";
-  color: #64ffda; /* Neon Blue */
+  color: #64ffda;
   font-size: 16px;
   margin-right: 10px;
   display: inline-block;
 }
 
-/* Right Column - Image */
+/* ✅ Right Column - Image (Fixed Size) */
 .about-image {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  max-width: 300px; /* ✅ Fix Image Size */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
+/* ✅ Show Image */
+#about.visible .about-image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ✅ Make Sure the Image is Not Too Big */
 .about-image img {
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  max-width: 250px; /* ✅ Ensure Image Size is Proper */
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
@@ -99,35 +156,20 @@
 /* ✅ MOBILE VIEW - Stack Text on Top, Image Below */
 @media (max-width: 768px) {
   #about {
-    flex-direction: column; /* Stack items vertically */
-    text-align: left;
-    padding: 40px 10%;
-  }
-
-  /* ✅ Ensure Line is Present on Mobile */
-  .about-header {
-    justify-content: left;
-  }
-
-  /* Technologies List in Single Column */
-  .tech-container {
     flex-direction: column;
-    align-items: flex-start;
+    padding: 40px 10%;
+    text-align: center;
   }
 
-  .tech-list {
-    width: 100%;
-    text-align: left;
-  }
-
-  /* Center Image */
+  /* ✅ Stack Image Below */
   .about-image {
     justify-content: center;
+    max-width: 200px; /* ✅ Smaller Size for Mobile */
     margin-top: 20px;
   }
 
   .about-image img {
-    width: 200px; /* Smaller size for mobile */
-    height: 200px;
+    max-width: 180px;
+    height: auto;
   }
 }

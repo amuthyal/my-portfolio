@@ -1,43 +1,55 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for hamburger menu
+import { FaBars, FaTimes } from "react-icons/fa";
 import resume from "../assets/resume.pdf";
 import "../styles/Header.css";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const lastScrollY = useRef(0);
 
-  // Hide header on scroll down, show on scroll up
+  // ✅ Detect Screen Resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Ensure Header Stays Visible on Desktop
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY.current) {
-        setIsVisible(false); // Hide header when scrolling down
-      } else {
-        setIsVisible(true); // Show header when scrolling up
+      if (!menuOpen && isMobile) {
+        if (window.scrollY > lastScrollY.current) {
+          setIsVisible(false); // Hide header on scroll down
+        } else {
+          setIsVisible(true); // Show header on scroll up
+        }
       }
       lastScrollY.current = window.scrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen, isMobile]);
 
-  // Toggle mobile menu & disable scrolling when open
+  // ✅ Toggle Mobile Menu
   const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+
     if (!menuOpen) {
-      document.body.classList.add("menu-open"); // Prevent scrolling
+      document.body.classList.add("menu-open");
     } else {
-      document.body.classList.remove("menu-open"); // Allow scrolling
+      document.body.classList.remove("menu-open");
     }
-    setMenuOpen(!menuOpen);
   };
 
   return (
-    <header className={`header ${isVisible ? "show" : "hide"}`}>
+    <header className={`header ${isVisible || !isMobile ? "show" : "hide"}`}>
       <nav className="nav-container">
-        {/* Desktop & Mobile Navigation */}
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li><Link to="about" smooth={true} duration={500} onClick={toggleMenu}>About</Link></li>
           <li><Link to="experience" smooth={true} duration={500} onClick={toggleMenu}>Experience</Link></li>
@@ -48,10 +60,12 @@ const Header = () => {
           </li>
         </ul>
 
-        {/* ✅ Hamburger Icon for Mobile */}
-        <button className="menu-toggle" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes className="close-icon" /> : <FaBars />}
-        </button>
+        {/* ✅ Ensure Hamburger Menu Only Appears on Mobile */}
+        {isMobile && (
+          <button className="menu-toggle" onClick={toggleMenu}>
+            {menuOpen ? <FaTimes className="close-icon" /> : <FaBars />}
+          </button>
+        )}
       </nav>
     </header>
   );

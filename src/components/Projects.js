@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaRegFolder } from "react-icons/fa"; 
+import useSectionObserver from "../hooks/useSectionObserver";
 import "../styles/Projects.css";
 
 const projects = [
   {
     title: "Amazon Recommender System",
-    description: "Designed a recommender system based on the product review data collected from http://jmcauley.ucsd.edu/data/amazon/",
-    techStack: ["HTML", "CSS", "D3", "Lucene", "Latent Dirichlet Allocation", "Java", "Data Visualization"],
+    description: "Designed a recommender system based on product review data from Amazon.",
+    techStack: ["HTML", "CSS", "D3", "Lucene", "LDA", "Java", "Data Visualization"],
   },
   {
     title: "Heart Rate Prediction using Electrocardiography",
-    description: "Collected the data from the wearable Faros ECG sensor and processed it for the determination of heart rate to predict bradycardia.",
-    techStack: ["MATLAB", "Python", "Machine Learning", "k-means clustering", "standard RPeak_detection", "Data Analysis", "Data Mining"],
+    description: "Collected ECG sensor data and processed it to predict bradycardia.",
+    techStack: ["MATLAB", "Python", "Machine Learning", "k-means", "RPeak Detection"],
   },
   {
     title: "Secure Banking System",
-    description: "Designed a secure banking web application that provides secure banking transactions and user account management. The system is implemented to minimize the vulnerabilities and maximize security",
+    description: "Developed a secure banking web app for safe transactions & account management.",
     techStack: ["Java", "Spring MVC", "MySQL"],
   },
 ];
 
 const Projects = () => {
+  const { ref, inView } = useSectionObserver();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // ✅ Detect screen width change to switch between carousel & stacked view
+  // ✅ Detect Screen Resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -42,7 +44,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" ref={ref} className={`projects-section ${inView ? "visible" : ""}`}>
       <h2 className="section-title">Projects</h2>
 
       {/* ✅ Mobile View: Show All Projects Stacked */}
@@ -53,10 +55,8 @@ const Projects = () => {
               <div className="folder-icon">
                 <FaRegFolder />
               </div>
-
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
-
               <div className="tech-stack">
                 {project.techStack.map((tech, i) => (
                   <span key={i} className="tech-item">{tech}</span>

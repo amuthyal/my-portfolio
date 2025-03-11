@@ -1,11 +1,13 @@
 import React from "react";
 import "../styles/About.css";
+import useSectionObserver from "../hooks/useSectionObserver";
 import profileImg from "../Images/profile.jpg"; 
 
 const About = () => {
+  const { ref, inView } = useSectionObserver();
+
   return (
-    <section id="about">
-      {/* ✅ About Me Heading with Line */}
+    <section id="about" ref={ref} className={`about-section ${inView ? "visible" : ""}`}>
       <div className="about-text">
         <div className="about-header">
           <h2>About Me</h2>
@@ -26,7 +28,6 @@ const About = () => {
           to improve user experiences and operational efficiency.
         </p>
 
-        {/* Technologies Section */}
         <h3 className="tech-title">Technologies I’ve Been Working With Recently:</h3>
         <div className="tech-container">
           <ul className="tech-list">
@@ -42,7 +43,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* ✅ Image Below in Mobile */}
       <div className="about-image">
         <img src={profileImg} alt="Akhila Muthyala" />
       </div>

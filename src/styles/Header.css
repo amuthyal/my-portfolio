@@ -1,6 +1,6 @@
-/* HEADER */
+/* ✅ HEADER */
 .header {
-  background: #0a192f; /* Dark Navy Blue */
+  background: #0a192f;
   color: white;
   padding: 15px 50px;
   display: flex;
@@ -16,14 +16,22 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hide Header on Scroll Down */
-.header.hide {
-  transform: translateY(-100%);
+/* Hide Header on Scroll Down (Mobile Only) */
+@media (max-width: 768px) {
+  .header.hide {
+    transform: translateY(-100%);
+  }
+
+  .header.show {
+    transform: translateY(0);
+  }
 }
 
-/* Show Header on Scroll Up */
-.header.show {
-  transform: translateY(0);
+/* ✅ Ensure Header Always Visible on Desktop */
+@media (min-width: 769px) {
+  .header {
+    transform: translateY(0) !important;
+  }
 }
 
 /* NAVIGATION LINKS */
@@ -61,7 +69,7 @@
 }
 
 .nav-links a:hover {
-  color: #64ffda; /* Neon Blue */
+  color: #64ffda;
 }
 
 /* Resume Button */
@@ -82,16 +90,15 @@
   color: black;
 }
 
-/* ✅ MOBILE MENU - Fullscreen, Fixed Navigation */
+/* ✅ MOBILE MENU */
 @media (max-width: 768px) {
-  /* Navigation Covers Entire Screen */
   .nav-links {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh; /* Fullscreen height */
-    background: #112240; /* Darker Navy */
+    height: 100vh;
+    background: #112240;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -101,23 +108,15 @@
     z-index: 9999;
   }
 
-  /* When Menu is Open, It Covers Everything */
+  /* ✅ When Menu is Open */
   .nav-links.open {
     transform: translateX(0);
-    height: 100vh; /* Make sure it covers the full screen */
-    width: 100vw;
-    overflow: hidden; /* Prevent scrolling inside */
-  }
-
-  /* ✅ Prevent Page Scroll When Menu is Open */
-  body.menu-open {
-    overflow: hidden;
     height: 100vh;
     width: 100vw;
-    position: fixed;
+    overflow: hidden;
   }
 
-  /* ✅ Hamburger Menu Styling */
+  /* ✅ Ensure Hamburger Menu is Always Visible */
   .menu-toggle {
     display: block;
     position: fixed;
@@ -128,13 +127,13 @@
     color: white;
     font-size: 32px;
     cursor: pointer;
-    z-index: 11000; /* Ensure it's always on top */
+    z-index: 11000;
   }
 
   /* Close (X) Button */
   .close-icon {
     font-size: 32px;
-    color: #64ffda; /* Neon Blue */
+    color: #64ffda;
   }
 
   .close-icon:hover {
@@ -142,7 +141,7 @@
   }
 }
 
-/* HIDE HAMBURGER MENU & X ON DESKTOP */
+/* ✅ HIDE HAMBURGER MENU & X ON DESKTOP */
 @media (min-width: 769px) {
   .menu-toggle {
     display: none !important;

@@ -12,3 +12,16 @@ body, html {
 .text-center {
   text-align: center;
 }
+
+
+/* Fade In Effect */
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
