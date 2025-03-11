@@ -5,6 +5,8 @@ body, html {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
@@ -24,4 +26,10 @@ body, html {
 .content.fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ✅ Prevent Sections from Expanding Beyond View */
+.section {
+  overflow-x: hidden; /* Stop horizontal scrollbar */
+  max-width: 100vw;
 }

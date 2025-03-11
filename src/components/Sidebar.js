@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../styles/Sidebar.css";
-import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa"; // React Icons
+import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-const Sidebar = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // ✅ Trigger fade-in effect when component mounts
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
-  }, []);
-
+const Sidebar = ({ isMobileView }) => {
   return (
-    <div className={`sidebar ${isVisible ? "visible" : ""}`}>
+    <div className={`sidebar ${isMobileView ? "mobile-sidebar" : "desktop-sidebar"}`}>
       <a href="https://github.com/amuthyal" target="_blank" rel="noopener noreferrer">
         <FaGithub className="sidebar-icon" />
       </a>

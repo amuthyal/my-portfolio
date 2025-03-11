@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Contact.css";
-import Sidebar from "./Sidebar"; // Import Sidebar
+import Sidebar from "./Sidebar";
 import useSectionObserver from "../hooks/useSectionObserver";
 
 const Contact = () => {
   const { ref, inView } = useSectionObserver();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section id="contact" ref={ref} className={`contact-section ${inView ? "visible" : ""}`}>
@@ -18,8 +27,9 @@ const Contact = () => {
       <a href="mailto:muthyala.akhila07@gmail.com" className="contact-button">
         Say Hello
       </a>
-      {/* Sidebar now appears below button in mobile */}
-      <Sidebar />
+
+      {/* ✅ Sidebar now appears UNDER the button ONLY in Mobile View */}
+      {isMobile && <Sidebar isMobileView />}
     </section>
   );
 };
