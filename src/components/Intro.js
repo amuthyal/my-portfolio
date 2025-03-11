@@ -13,13 +13,16 @@ const Intro = () => {
 
   return (
     <section id="intro" className={`intro-section ${isVisible ? "visible" : ""}`}>
-      <h1>Hi, my name is</h1>
-      <h3>Akhila Muthyala</h3>
-      <p className="intro-text">
-        I'm an experienced full-stack developer, and I'm passionate about 
-        building <span className="highlight">high-performance, AI-enhanced applications</span> 
-        that drive engagement and efficiency.
-      </p>
+      <div className="intro-content">
+        <h1>Hi, my name is</h1>
+        <h2 className="intro-name">Akhila Muthyala</h2>
+        <h3 className="intro-subtitle">Innovative Developer | AI Enthusiast | Architecting Scalable Solutions</h3>
+        <p className="intro-text">
+          I'm an experienced full-stack developer, and I'm passionate about 
+          building <span className="highlight">high-performance, AI-enhanced applications</span> 
+          that drive engagement and efficiency.
+        </p>
+      </div>
     </section>
   );
 };
