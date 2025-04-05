@@ -1,0 +1,243 @@
+.featured-section {
+    padding: 80px 20px;
+    background-color: #0a192f;
+    color: #ccd6f6;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .section-heading,
+  .featured-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: 'SF Mono', monospace;
+    margin-bottom: 40px;
+  }
+  
+  .featured-wrapper {
+    margin-bottom: 100px;
+  }
+  
+  /* Featured Project Layout */
+  .featured-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  /* Reverse layout */
+  .featured-project.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .featured-project.reverse .project-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  /* Image */
+  .project-image {
+    flex: 1 1 60%;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+  
+  .featured-project.reverse .project-image {
+    margin-right: 0;
+    margin-left: 30px;
+  }
+  
+  .project-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: filter 0.4s ease;
+    filter: brightness(0.5) saturate(1.8) hue-rotate(160deg);
+  }
+  
+  .project-image:hover img {
+    filter: brightness(1) saturate(1) hue-rotate(0deg);
+  }
+  
+  /* Info */
+  .project-info {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 2;
+  }
+  
+  /* Tags */
+  .project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .tag-badge {
+    background-color: #233554;
+    color: #64ffda;
+    font-size: 11px;
+    font-family: 'SF Mono', monospace;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Text */
+  .project-label {
+    font-family: 'SF Mono', monospace;
+    color: #64ffda;
+    font-size: 13px;
+    margin-bottom: 5px;
+    text-align: right;
+  }
+  
+  .project-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 14px;
+    color: #ccd6f6;
+    text-align: right;
+  }
+  
+  .project-description {
+    background-color: rgba(17, 34, 64, 0.95);
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #a8b2d1;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    box-shadow: 0 8px 20px rgba(2, 12, 27, 0.6);
+    text-align: right;
+  }
+  
+  .project-description a {
+    color: #64ffda;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* Tech List */
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-family: 'SF Mono', monospace;
+    color: #8892b0;
+  }
+  
+  /* Links */
+  .project-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .project-links a {
+    color: #ccd6f6;
+    font-size: 18px;
+    margin-left: 14px;
+    transition: color 0.3s ease;
+  }
+  
+  .project-links a:hover {
+    color: #64ffda;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .featured-project {
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 100px;
+      padding: 20px; /* ✅ Add internal padding */
+      box-sizing: border-box;
+    }
+  
+    .project-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3) saturate(2) hue-rotate(180deg);
+    }
+  
+    .project-info {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to right, rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.95));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+  
+      /* ✅ Ensure text never bleeds out */
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  
+    .project-label,
+    .project-title,
+    .project-description,
+    .project-tech,
+    .project-links,
+    .project-tags {
+      text-align: right;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  
+    .project-description {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+  
+    .project-tech {
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+    }
+  
+    .project-links a {
+      font-size: 20px;
+    }
+  
+    .featured-wrapper {
+      margin-bottom: 80px;
+    }
+  }
+  
+  

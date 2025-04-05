@@ -6,7 +6,8 @@ import Sidebar from "./components/Sidebar"; // ✅ Sidebar is always outside the
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Loading from "./components/Loading"; // ✅ Import Loading Component
+import Featured from "./components/Featured";
+import Loading from "./components/Loading"; // 
 import "./App.css";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Header />
           <Intro />
           <About />
+          <Featured /> 
           <Experience />
           <Projects />
           <Contact />
