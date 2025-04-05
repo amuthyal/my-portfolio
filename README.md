@@ -7,6 +7,19 @@ It is currently **hosted on GitHub Pages** and will later be deployed on **AWS S
 
 I've used brittanychiang.com for design inspiration to build my personal website from scratch.
 
+## 📸 Preview
+
+### 🖥️ Desktop View
+
+![Homepage - Desktop](screenshots/home-desktop.png)
+![About me Section - Desktop](screenshots/aboutme-desktop.png)
+
+### 📱 Mobile View
+
+![Homepage - Mobile](screenshots/home-mobile.png)
+![Projects - Mobile](screenshots/projects-mobile.png)
+
+
 ---
 
 ## ⚙️ Tech Stack
