@@ -1,6 +1,9 @@
 # 🚀 Akhila Muthyala - Portfolio
 
 ## 📌 Overview
+
+https://amuthyal.github.io/my-portfolio/
+
 This is my personal **portfolio website** showcasing my work, experience, projects, and technologies I’ve been working with. The website is built with **React** and styled using modern **CSS techniques** to ensure responsiveness across all devices.
 
 It is currently **hosted on GitHub Pages** and will later be deployed on **AWS S3 + CloudFront** for improved performance and scalability.
